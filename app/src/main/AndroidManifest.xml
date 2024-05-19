@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.feelthecoder.viddownloader">
+
+    <uses-sdk tools:overrideLibrary="com.arthenica.mobileffmpeg,com.zhkrb.cloudflare_scrape_webview" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission
+        android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- Required only if your app targets Android 13.
+
+ Declare one or more the following permissions only if your app needs
+    to access data that's protected by them.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+
+
+    <!-- Required to maintain app compatibility. -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="34" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_LAUNCH_BROADCASTS" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.zhiliaoapp.musically" />
+        <package android:name="com.instagram.android" />
+        <package android:name="com.twitter.android" />
+        <package android:name="com.google.android.youtube" />
+        <package android:name="com.vimeo.android.videoapp" />
+        <package android:name="com.pinterest" />
+        <package android:name="com.android.chrome" />
+        <package android:name="video.like" />
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="*" />
+        </intent>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.feelthecoder.viddownloader.AppController"
+        android:allowBackup="true"
+        android:fullBackupOnly="true"
+        android:enableOnBackInvokedCallback="true"
+        android:extractNativeLibs="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/vid_preview"
+        android:installLocation="preferExternal"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:preserveLegacyExternalStorage="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/vid_preview"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:showWhenLocked="true"
+        android:turnScreenOn="true"
+        android:usesCleartextTraffic="true"
+        >
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.DLApiActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.snapchatstorysaver.SnapChatBulkStoryDownloader"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.facebookstorysaver.FacebookPrivateWebview"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.GetLinkThroughWebView"
+            android:exported="true" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.BulkDownloaderProfileActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.InstagramBulkDownloaderSearch" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.InstagramBulkDownloaderSearch"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.CoinsConsumableItemsActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.InstagramFollowersList"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.SplashScreen"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.AllSupportedApps"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.extraFeatures.TikTokWebview"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.facebook.ads.AudienceNetworkActivity"
+            android:hardwareAccelerated="true" />
+
+        <provider
+            android:name="com.feelthecoder.viddownloader.utils.MyFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/AdmobAppId" />
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.feelthecoder.viddownloader.extraFeatures.videolivewallpaper.MainActivityLivewallpaper"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.RateUsWebView"
+            android:exported="true" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.FullImageActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.FullViewArrayActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.InstagramLoginActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.TikTokDownloadWebview"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.extraFeatures.EarningAppWebviewActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.facebookstorysaver.fbutils.LoginWithFB"
+            android:exported="false" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.GetTiktokLinkThroughWebview"
+            android:exported="true" />
+
+        <service
+            android:name="com.feelthecoder.viddownloader.extraFeatures.videolivewallpaper.CinimaWallService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/config" />
+        </service>
+        <service
+            android:name="com.feelthecoder.viddownloader.services.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.feelthecoder.viddownloader.services.FloatingWidgetDownload"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.feelthecoder.viddownloader.utils.work.CancelReceiver"
+            android:exported="true" />
+        <receiver
+            android:name="com.feelthecoder.viddownloader.receiver.DownloadBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- TODO DONE to allow PIP with out dialog permission -->
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.VideoPlayActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"
+            tools:ignore="UnusedAttribute" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_2"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_3"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_4"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_5"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.WebViewDownloadTesting"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_6"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.TikTokDownloadCloudBypassWebview_method_7"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.GalleryActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.FacebookDownloadCloudBypassWebview_method_3"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.FacebookDownloadCloudBypassWebview_method_2"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.tiktok_methods.FacebookDownloadCloudBypassWebview_method_1"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.SubscriptionActivity"
+            android:exported="true"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <!--        NewUI Activities-->
+
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.newUi.SettingActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.newUi.MainActivityNewUi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.newUi.StatusSaverActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.newUi.MainActivityNewUi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.newUi.AboutUsActivity"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.newUi.SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.newUi.GalleryActivityNewUi"
+            android:exported="false"
+            android:parentActivityName="com.feelthecoder.viddownloader.activities.newUi.MainActivityNewUi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.feelthecoder.viddownloader.activities.newUi.MainActivityNewUi"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.SEND" />-->
+            <!--                <category android:name="android.intent.category.DEFAULT" />-->
+            <!--                <data android:mimeType="text/*" />-->
+            <!--            </intent-filter>-->
+
+        </activity>
+
+
+        <!-- Google Play Services -->
+
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${crashlytics}" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_appicon" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <meta-data
+            android:name="com.onesignal.NotificationServiceExtension"
+            android:value="${applicationId}.utils.NotificationServiceExtension" />
+
+    </application>
+
+</manifest>

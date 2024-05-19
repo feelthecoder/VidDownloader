@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536481708084",
+    "project_id": "feelthecoder-8b674",
+    "storage_bucket": "feelthecoder-8b674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536481708084:android:eb3963db2f44adae223261",
+        "android_client_info": {
+          "package_name": "com.feelthecoder.viddownloader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuTJfWnm14Dnp3AGP3rdy1TFsA0xs7ods"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
