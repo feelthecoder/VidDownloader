@@ -14,6 +14,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,10 +82,15 @@ public class InstagramFollowersList extends AppCompatActivity {
                     MobileAds.initialize(
                             getApplicationContext(),
                             initializationStatus -> {
+
                                 AdsManager.loadBannerAdsAdapter(this, binding.bannerContainer);
+                                AdsManager.loadBannerAdsAdapter(this, binding.bannerContain);
+
                             });
                 } else {
+                    binding.bannerContain.setVisibility(View.GONE);
                     binding.bannerContainer.setVisibility(View.GONE);
+                    ((ViewGroup.MarginLayoutParams)binding.viewpagergallery.getLayoutParams()).topMargin = 0;
                 }
             }
 

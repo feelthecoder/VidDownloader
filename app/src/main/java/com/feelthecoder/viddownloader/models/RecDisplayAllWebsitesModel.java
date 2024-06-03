@@ -8,17 +8,35 @@ public class RecDisplayAllWebsitesModel {
     String websitestatue;
     String websitesshowtatue;
 
+    String website;
+    String packagen;
+
 
     public RecDisplayAllWebsitesModel() {
     }
 
-    public RecDisplayAllWebsitesModel(String websiteurl, String websitename, String websitestatue, String websitesshowtatue) {
+    public RecDisplayAllWebsitesModel(String website,String packagen,String websiteurl, String websitename, String websitestatue, String websitesshowtatue) {
         this.websiteurl = websiteurl;
         this.websitename = websitename;
         this.websitestatue = websitestatue;
         this.websitesshowtatue = websitesshowtatue;
     }
 
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getPackagen() {
+        return packagen;
+    }
+
+    public void setPackagen(String packagen) {
+        this.packagen = packagen;
+    }
 
     public String getWebsitesshowtatue() {
         return websitesshowtatue;

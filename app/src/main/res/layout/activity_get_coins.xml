@@ -21,7 +21,7 @@
             android:textColor="@color/black"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="You have 10 Coins"
+            android:text="You have 0 Coins"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -30,6 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/progress_circular"
             android:layout_width="wrap_content"
+            android:visibility="invisible"
             android:layout_height="wrap_content"/>
 
         <TextView
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:textColor="@color/md_white_1000"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="@color/blue_colorPrimaryDark"
             android:layout_margin="10dp"
             android:visibility="visible"
             android:text="@string/watch_interstitial_ad_5_coins" />
@@ -61,7 +62,7 @@
             android:textColor="@color/md_white_1000"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorAccent"
+            android:background="@color/blue_colorPrimaryDark"
             android:visibility="visible"
             android:text="@string/watch_video_ad_15_coins" />
 
@@ -87,18 +88,18 @@
             android:textColor="@color/md_white_1000"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorAccent"
-            android:visibility="invisible"
-            android:text="@string/app_name" />
+            android:background="@color/blue_colorPrimaryDark"
+            android:visibility="visible"
+            android:text="@string/buy_100_coins" />
         <Button
             android:id="@+id/btn_500"
             android:layout_width="match_parent"
             android:textColor="@color/md_white_1000"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:visibility="invisible"
-            android:background="@color/colorAccent"
-            android:text="@string/app_name" />
+            android:visibility="visible"
+            android:background="@color/blue_colorPrimaryDark"
+            android:text="@string/buy_500_coins" />
     </LinearLayout>
 
 </ScrollView>

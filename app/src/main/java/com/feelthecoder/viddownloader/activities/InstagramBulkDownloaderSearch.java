@@ -19,6 +19,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.feelthecoder.viddownloader.BuildConfig;
+import com.feelthecoder.viddownloader.utils.AdsManager;
+import com.feelthecoder.viddownloader.utils.Constants;
+import com.feelthecoder.viddownloader.utils.SharedPrefsMainApp;
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -88,7 +93,27 @@ public class InstagramBulkDownloaderSearch extends AppCompatActivity {
             });
 
 
+
             loadDummyData();
+
+            if (Constants.show_Ads && !BuildConfig.ISPRO && AdsManager.status_AdmobBanner) {
+
+                String pp = new SharedPrefsMainApp(getApplicationContext()).getPREFERENCE_inappads();
+                if (pp.equals("nnn")) {
+
+
+                    MobileAds.initialize(
+                            getApplicationContext(),
+                            initializationStatus -> {
+                                AdsManager.loadBannerAd(InstagramBulkDownloaderSearch.this, binding.bannerContain);
+                            });
+                } else {
+                    binding.bannerContain.setVisibility(View.GONE);
+                }
+            } else {
+                binding.bannerContain.setVisibility(View.GONE);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -44,7 +44,7 @@ public class ProfileBulkLayoutAdapter extends RecyclerView.Adapter<ProfileBulkLa
 
         UserUser model = data.get(position);
 
-        GlideApp.with(context).load(model.profile_pic_url).placeholder(R.drawable.insta).into(holder.row_search_imageview);
+        GlideApp.with(context).load(model.profile_pic_url).placeholder(R.drawable.insta_new).into(holder.row_search_imageview);
         holder.row_search_name_textview.setText(model.fullName);
         holder.row_search_detail_textview.setText(model.username);
 

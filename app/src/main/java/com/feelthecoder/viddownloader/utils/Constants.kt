@@ -38,7 +38,7 @@ object Constants {
     const val adminApiUrl: String = "https://feelthecoder-8b674.web.app/admin"
 
     //TODO NOTE: Should make both false if you want to upload to the play-store
-    const val showyoutube = false
+    const val showyoutube = true
 
     //TODO NOTE: if you want to hide subscription button you can make this false
     const val show_subscription = false

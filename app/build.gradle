@@ -73,7 +73,7 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [crashlytics: "true"]
-            buildConfigField "boolean", "ISPRO", "true"
+            buildConfigField "boolean", "ISPRO", "false"
             signingConfig signingConfigs.debug
         }
 
@@ -84,7 +84,7 @@ android {
             minifyEnabled true
             shrinkResources true
             manifestPlaceholders = [crashlytics: "true"]
-            buildConfigField "boolean", "ISPRO", "true"
+            buildConfigField "boolean", "ISPRO", "false"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -270,7 +270,7 @@ android {
 
 
         //push notification firebase
-        implementation 'com.google.firebase:firebase-messaging:23.4.0'
+        implementation 'com.google.firebase:firebase-messaging:24.0.0'
 
         //video view
         implementation 'com.linsea:universalvideoview:1.1.0@aar'

@@ -76,10 +76,13 @@ public class MainActivityLivewallpaper extends AppCompatActivity {
                                 getApplicationContext(),
                                 initializationStatus -> {
                                     AdsManager.loadBannerAdsAdapter(MainActivityLivewallpaper.this, binding.bannerContainer);
+                                    AdsManager.loadBannerAdsAdapter(MainActivityLivewallpaper.this, binding.bannerContain);
                                 });
 
                     } else {
+
                         binding.bannerContainer.setVisibility(View.GONE);
+                        binding.bannerContain.setVisibility(View.GONE);
 
                     }
 
@@ -88,10 +91,12 @@ public class MainActivityLivewallpaper extends AppCompatActivity {
                 } else {
 
                     binding.bannerContainer.setVisibility(View.GONE);
+                    binding.bannerContain.setVisibility(View.GONE);
                 }
             } else {
 
                 binding.bannerContainer.setVisibility(View.GONE);
+                binding.bannerContain.setVisibility(View.GONE);
             }
 
 

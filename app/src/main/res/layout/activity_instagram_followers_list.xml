@@ -34,6 +34,21 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/banner_contain"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="top"
+            android:layout_marginTop="62dp"
+            android:gravity="top"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:sliderAutoCycleEnabled="true"
+            app:sliderIndicatorEnabled="true"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorRadius="1dp"
+            app:sliderScrollTimeInSec="5"
+            app:sliderStartAutoCycle="true" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpagergallery"

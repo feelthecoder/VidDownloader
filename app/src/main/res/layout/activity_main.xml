@@ -37,10 +37,26 @@
                 app:menu="@menu/botton_nav_nonplay" />
 
         </com.google.android.material.appbar.AppBarLayout>
-
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/banner_contain"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:sliderAutoCycleEnabled="true"
+            app:sliderIndicatorEnabled="true"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorRadius="1dp"
+            app:sliderScrollTimeInSec="5"
+            android:layout_marginTop="62dp"
+            app:sliderStartAutoCycle="true"
+            android:layout_gravity="top"
+            android:gravity="top" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
+            android:layout_marginTop="58dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />

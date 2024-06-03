@@ -551,9 +551,9 @@ class DownloadMainFragment : Fragment() {
             )
         }
 
-        if (!Constants.showyoutube) {
-            binding!!.llytdbtn.visibility = View.GONE
-        }
+//        if (!Constants.showyoutube) {
+//            binding!!.llytdbtn.visibility = View.GONE
+//        }
         binding!!.llytdbtn.setOnClickListener {
             openAppFromPackage(
                 "com.google.android.youtube",

@@ -57,7 +57,21 @@
         android:text="@string/as_of_the_new_api_update_you_can_use_the_bilk_downloader_only_if_your_account_is_logged_in"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="gone" />
-
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/banner_contain"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorEnabled="true"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorRadius="1dp"
+        app:sliderScrollTimeInSec="5"
+        app:sliderStartAutoCycle="true"
+        android:layout_gravity="center"
+        android:gravity="center" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

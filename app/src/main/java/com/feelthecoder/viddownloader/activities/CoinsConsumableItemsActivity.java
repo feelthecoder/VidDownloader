@@ -106,37 +106,43 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
             connectGooglePlayBilling();
 
             btn_100.setOnClickListener(v -> {
+                progress_circular.setVisibility(View.VISIBLE);
                 //we are opening product at index zero since we only have one product
                 launchPurchaseFlow(productDetailsList.get(0));
             });
 
             btn_500.setOnClickListener(v -> {
+                progress_circular.setVisibility(View.VISIBLE);
                 //we are opening product at index zero since we only have one product
                 launchPurchaseFlow(productDetailsList.get(1));
             });
 
-            btn_intAd.setOnClickListener(v -> AdsManager.showAdmobInterstitialAd(CoinsConsumableItemsActivity.this, new FullScreenContentCallback() {
-                @Override
-                public void onAdDismissedFullScreenContent() {
-                    super.onAdDismissedFullScreenContent();
-                    prefs.setInt("coins", (coins.get(2)) + prefs.getInt("coins", 0));
-                    clicks.setText(getString(R.string.available_coins_00) + prefs.getInt("coins", 0));
+            btn_intAd.setOnClickListener(v -> {
+                progress_circular.setVisibility(View.VISIBLE);
+                AdsManager.showAdmobInterstitialAd(CoinsConsumableItemsActivity.this, new FullScreenContentCallback() {
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        super.onAdDismissedFullScreenContent();
+                        prefs.setInt("coins", (coins.get(2)) + prefs.getInt("coins", 0));
+                        clicks.setText(getString(R.string.available_coins_00) + prefs.getInt("coins", 0));
 
-                    startCountDown(int_ad_time);
-                    prefs.setLong("adtime", System.currentTimeMillis() + int_ad_time);
+                        startCountDown(int_ad_time);
+                        prefs.setLong("adtime", System.currentTimeMillis() + int_ad_time);
+                        progress_circular.setVisibility(View.INVISIBLE);
 
-                }
+                    }
 
-                @Override
-                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
-                    super.onAdFailedToShowFullScreenContent(adError);
-                    iUtils.ShowToastError(CoinsConsumableItemsActivity.this, getString(R.string.videonotavaliabl));
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                        super.onAdFailedToShowFullScreenContent(adError);
+                        iUtils.ShowToastError(CoinsConsumableItemsActivity.this, getString(R.string.videonotavaliabl));
 
-                }
-            }));
+                    }
+                });
+            });
 
             btn_videoAd.setOnClickListener(v -> {
-
+                progress_circular.setVisibility(View.VISIBLE);
                 showVideoAd();
             });
 
@@ -224,6 +230,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
 
                 startCountDown(video_ad_time);
                 prefs.setLong("adtime", System.currentTimeMillis() + video_ad_time);
+                progress_circular.setVisibility(View.INVISIBLE);
             });
         }
     }
@@ -275,7 +282,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
 
 //            Log.d(TAG, "Size " + list.size());
             try {
-                if (list.size() > 0) {
+                if (!list.isEmpty()) {
                     //Handler to delay by two seconds to wait for google play to return the list of products.
                     handler.postDelayed(() -> {
                         //Adding new productList, returned from google play

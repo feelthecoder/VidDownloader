@@ -214,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             batteryRestrictionPermission()
                             batteryRestrictionPermissionIgnoreBatteryOptimization()
-
                         }
                     } else {
                         hasNotificationPermissionGranted = true
@@ -345,12 +344,22 @@ class MainActivity : AppCompatActivity() {
                             this@MainActivity,
                             binding.bannerContainer
                         )
+
+                        AdsManager.loadBannerAd(
+                            this@MainActivity,
+                            binding.bannerContain
+                        )
                     }
+
                 } else {
                     binding.bannerContainer.visibility = View.GONE
+                    binding.bannerContain.visibility = View.GONE
+                    (binding.viewpager.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
                 }
             } else {
                 binding.bannerContainer.visibility = View.GONE
+                binding.bannerContain.visibility = View.GONE
+                (binding.viewpager.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
             }
 
 

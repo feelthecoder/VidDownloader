@@ -19,6 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.feelthecoder.viddownloader.BuildConfig;
+import com.feelthecoder.viddownloader.utils.AdsManager;
+import com.feelthecoder.viddownloader.utils.Constants;
+import com.feelthecoder.viddownloader.utils.SharedPrefsMainApp;
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.feelthecoder.viddownloader.R;
@@ -111,6 +116,24 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
                 }
             });
 
+            if (Constants.show_Ads && !BuildConfig.ISPRO && AdsManager.status_AdmobBanner) {
+
+                String pp = new SharedPrefsMainApp(getApplicationContext()).getPREFERENCE_inappads();
+                if (pp.equals("nnn")) {
+
+
+                    MobileAds.initialize(
+                            getApplicationContext(),
+                            initializationStatus -> {
+                                AdsManager.loadBannerAd(BulkDownloaderProfileActivity.this, binding.bannerContain);
+                            });
+                } else {
+                    binding.bannerContain.setVisibility(View.GONE);
+                }
+            } else {
+                binding.bannerContain.setVisibility(View.GONE);
+            }
+
 
             binding.floatingloadmore.setOnClickListener(v -> {
                 binding.floatingloadmore.setVisibility(View.GONE);
@@ -164,7 +187,7 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
                         binding.profileLongApprovedImageview.setVisibility(View.VISIBLE);
                         GlideApp.with(BulkDownloaderProfileActivity.this)
                                 .load(R.drawable.approved)
-                                .placeholder(R.drawable.ic_appicon_pro).into( binding.profileLongApprovedImageview);
+                                .placeholder(R.drawable.insta_new).into( binding.profileLongApprovedImageview);
 
                     } else {
                         binding.profileLongApprovedImageview.setVisibility(View.GONE);
@@ -175,13 +198,13 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
                         binding.rowSearchPrivateImageviewPrivate.setVisibility(View.VISIBLE);
                         GlideApp.with(BulkDownloaderProfileActivity.this)
                                 .load(R.drawable.private_icon)
-                                .placeholder(R.drawable.ic_appicon_pro).into(binding.rowSearchPrivateImageviewPrivate);
+                                .placeholder(R.drawable.insta_new).into(binding.rowSearchPrivateImageviewPrivate);
                     } else {
                         binding.rowSearchPrivateImageviewPrivate.setVisibility(View.GONE);
 
                     }
 
-                    GlideApp.with(BulkDownloaderProfileActivity.this).load(userdata.get("profile_pic_url").getAsString()).placeholder(R.drawable.ic_appicon_pro).into(binding.profileLongCircle);
+                    GlideApp.with(BulkDownloaderProfileActivity.this).load(userdata.get("profile_pic_url").getAsString()).placeholder(R.drawable.insta_new).into(binding.profileLongCircle);
 
 
                 } catch (Exception e) {
@@ -272,6 +295,7 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         INSTAGRAM_END_CAROUSEL = "";
         finish();
     }

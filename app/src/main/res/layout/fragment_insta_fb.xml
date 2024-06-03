@@ -173,7 +173,7 @@
                         android:contentDescription="ic_info_download_fbstories"
                         android:focusable="true"
                         android:padding="14dp"
-                        android:src="@drawable/insta_new" />
+                        android:src="@drawable/fb_new" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"

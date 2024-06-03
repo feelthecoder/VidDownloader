@@ -180,6 +180,22 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/banner_contain"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorEnabled="true"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorRadius="1dp"
+                app:sliderScrollTimeInSec="5"
+                app:sliderStartAutoCycle="true"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

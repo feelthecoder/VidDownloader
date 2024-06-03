@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -89,12 +90,17 @@ public class GalleryActivity extends AppCompatActivity {
                             getApplicationContext(),
                             initializationStatus -> {
                                 AdsManager.loadBannerAd(GalleryActivity.this, binding.bannerContainer);
+                                AdsManager.loadBannerAd(GalleryActivity.this, binding.bannerContain);
                             });
                 } else {
                     binding.bannerContainer.setVisibility(View.GONE);
+                    binding.bannerContain.setVisibility(View.GONE);
+                    ((ViewGroup.MarginLayoutParams)binding.viewpagergallery.getLayoutParams()).topMargin = 0;
                 }
             } else {
                 binding.bannerContainer.setVisibility(View.GONE);
+                binding.bannerContain.setVisibility(View.GONE);
+                ((ViewGroup.MarginLayoutParams)binding.viewpagergallery.getLayoutParams()).topMargin = 0;
             }
 
             if (Constants.isNonPlayStoreApp) {

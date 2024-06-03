@@ -8,9 +8,16 @@
 
 package com.feelthecoder.viddownloader.activities;
 
+import static com.feelthecoder.viddownloader.utils.iUtils.ShowToast;
+import static com.feelthecoder.viddownloader.utils.iUtils.isMyPackageInstalled;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,13 +33,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.feelthecoder.viddownloader.BuildConfig;
 import com.feelthecoder.viddownloader.R;
 import com.feelthecoder.viddownloader.databinding.ActivityAllSupportedBinding;
 import com.feelthecoder.viddownloader.models.RecDisplayAllWebsitesModel;
+import com.feelthecoder.viddownloader.utils.AdsManager;
 import com.feelthecoder.viddownloader.utils.Constants;
 import com.feelthecoder.viddownloader.utils.GlideApp;
 import com.feelthecoder.viddownloader.utils.LocaleHelper;
+import com.feelthecoder.viddownloader.utils.SharedPrefsMainApp;
 import com.feelthecoder.viddownloader.utils.iUtils;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -91,18 +104,18 @@ public class AllSupportedApps extends AppCompatActivity {
 
 
                 if (i < 8) {
-
-                    if (!Constants.showyoutube && jsonObjectdata.getString("website_name").contains("YTD")) {
-                        continue;
-                    }
+//
+//                    if (!Constants.showyoutube && jsonObjectdata.getString("website_name").contains("YTD")) {
+//                        continue;
+//                    }
 
                     recDisplayAllWebsitesModelArrayList
-                            .add(new RecDisplayAllWebsitesModel(jsonObjectdata.getString("website_pic_url"), jsonObjectdata.getString("website_name"), jsonObjectdata.getString("website_status"), jsonObjectdata.getString("show_status")));
+                            .add(new RecDisplayAllWebsitesModel(jsonObjectdata.getString("website"),jsonObjectdata.getString("package"),jsonObjectdata.getString("website_pic_url"), jsonObjectdata.getString("website_name"), jsonObjectdata.getString("website_status"), jsonObjectdata.getString("show_status")));
 
                 } else {
 
                     recDisplayAllWebsitesModelArrayListOtherWebsites
-                            .add(new RecDisplayAllWebsitesModel(jsonObjectdata.getString("website_pic_url"), jsonObjectdata.getString("website_name"), jsonObjectdata.getString("website_status"), jsonObjectdata.getString("show_status")));
+                            .add(new RecDisplayAllWebsitesModel(jsonObjectdata.getString("website"),jsonObjectdata.getString("package"),jsonObjectdata.getString("website_pic_url"), jsonObjectdata.getString("website_name"), jsonObjectdata.getString("website_status"), jsonObjectdata.getString("show_status")));
                 }
 
             }
@@ -138,6 +151,27 @@ public class AllSupportedApps extends AppCompatActivity {
             }
         });
 
+
+        if (Constants.show_Ads && !BuildConfig.ISPRO && AdsManager.status_AdmobBanner) {
+
+            String pp = new SharedPrefsMainApp(getApplicationContext()).getPREFERENCE_inappads();
+            if (pp.equals("nnn")) {
+
+
+                MobileAds.initialize(
+                        getApplicationContext(),
+                        initializationStatus -> {
+                            AdsManager.loadBannerAd(AllSupportedApps.this, binding.bannerContainer);
+                            AdsManager.loadBannerAd(AllSupportedApps.this, binding.bannerContain);
+                        });
+            } else {
+                binding.bannerContainer.setVisibility(View.GONE);
+                binding.bannerContain.setVisibility(View.GONE);
+            }
+        } else {
+            binding.bannerContainer.setVisibility(View.GONE);
+            binding.bannerContain.setVisibility(View.GONE);
+        }
 
     }
 
@@ -225,11 +259,16 @@ public class AllSupportedApps extends AppCompatActivity {
                 holder.imageIconView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context, recDisplayAllWebsitesModelArrayList.get(position).getWebsitename(), Toast.LENGTH_SHORT).show();
+                        openAppFromPackage(
+                                recDisplayAllWebsitesModelArrayList.get(position).getPackagen(),
+                                recDisplayAllWebsitesModelArrayList.get(position).getWebsite(),
+                                recDisplayAllWebsitesModelArrayList.get(position).getWebsitename()
+                        );
                     }
                 });
             }
         }
+
 
         @Override
         public int getItemCount() {
@@ -255,5 +294,59 @@ public class AllSupportedApps extends AppCompatActivity {
 
         }
 
+    }
+
+    private void openAppFromPackage(String packedgename, String websiteurl1, String websitename) {
+        if (isMyPackageInstalled(packedgename,getPackageManager())) {
+            try {
+                PackageManager pm = getPackageManager();
+                Intent launchIntent = pm.getLaunchIntentForPackage(packedgename);
+                startActivity(launchIntent);
+            } catch (Exception e) {
+                try {
+
+                    this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            iUtils.ShowToastError(
+                                  getApplicationContext(),getResources().getString(R.string.error_occord_while)
+                        );
+                        }
+                    });
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteurl1));
+                    startActivity(intent);
+
+                } catch (Exception exception) {
+
+                  this.runOnUiThread(new Runnable() {
+                      @Override
+                      public void run() {
+                          iUtils.ShowToastError(
+                                  getApplicationContext(),
+                                getResources().getString(R.string.error_occord_while)
+                        );
+                      }
+                  });
+                }
+            }
+        } else {
+            ShowToast(getApplicationContext(), websitename);
+            try {
+                startActivity(
+                        new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=$packedgename")
+                        )
+                );
+            } catch (ActivityNotFoundException activityNotFoundException) {
+                startActivity(
+                        new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=$packedgename")
+                        )
+                );
+            }
+        }
     }
 }

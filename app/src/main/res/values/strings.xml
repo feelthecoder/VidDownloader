@@ -42,14 +42,14 @@
 
     <!--TODO   admob test ads id change them to yours-->
 
-   <string name="AdmobAppId" translatable="false">ca-app-pub-4400449147041126~1218779879</string>
-   <string name="AdmobBanner" translatable="false">ca-app-pub-4400449147041126/5913537501</string>
-   <string name="AdmobAppopenads" translatable="false">ca-app-pub-4400449147041126/2400833751</string>
-   <string name="AdmobInterstitial" translatable="false">ca-app-pub-4400449147041126/4600455836</string>
-   <string name="AdmobRewardedInterstitial" translatable="false">ca-app-pub-4400449147041126/5681603217</string>
-   <string name="AdmobRewardID" translatable="false">ca-app-pub-4400449147041126/1974292498</string>
+   <string name="AdmobAppId" translatable="false">ca-app-pub-7909583069931762~3113792386</string>
+   <string name="AdmobBanner" translatable="false">ca-app-pub-7909583069931762/7445657748</string>
+   <string name="AdmobAppopenads" translatable="false">ca-app-pub-7909583069931762/1420387014</string>
+   <string name="AdmobInterstitial" translatable="false">ca-app-pub-7909583069931762/3718165725</string>
+   <string name="AdmobRewardedInterstitial" translatable="false">ca-app-pub-7909583069931762/2968637943</string>
+   <string name="AdmobRewardID" translatable="false">ca-app-pub-7909583069931762/5191476609</string>
    <string name="AdmobRewardVideoExtraFeatures" translatable="false"></string>
-   <string name="AdmobNativeID" translatable="false">ca-app-pub-4400449147041126/5662757073</string>
+   <string name="AdmobNativeID" translatable="false">ca-app-pub-7909583069931762/2565313262</string>
 
 
 
@@ -299,7 +299,7 @@
     <string name="without_watermark">Without Watermark</string>
     <string name="or">OR</string>
     <string name="download_mp3">Download Mp3</string>
-    <string name="live_video_wallpaper">Live Video Wallpaper</string>
+    <string name="live_video_wallpaper">Video Wallpaper</string>
     <string name="select_a_video_and_make_it_your_live_video_wallpaper">Select A Video And Make It Your Live Video Wallpaper</string>
     <string name="no_need_to_install_tiktok_app_open_tiktok_here">Run Tiktok In App &amp; Download Videos</string>
     <string name="youtube_hashtag_genarator">YouTube Hashtag Generator</string>
@@ -450,7 +450,7 @@
     <string name="alreadysubbed">You are Already Subscribed !!!</string>
     <string name="cancekdbilling">User has canceled the billing</string>
     <string name="billingnotready">Billing Client is not ready</string>
-    <string name="instagram_followers">Instagram Followers</string>
+    <string name="instagram_followers">Insta Followers</string>
     <string name="followers">Followers</string>
     <string name="followings">Followings</string>
     <string name="follow">Follow</string>
@@ -482,7 +482,7 @@
     <string name="notenoughtcoins">Not Enough Coins</string>
     <string name="buy_coins">Buy Coins</string>
     <string name="watch_video_ad_15_coins">Watch Video ad (15 coins)</string>
-    <string name="watch_interstitial_ad_5_coins">Watch interstitial ad (5 coins)</string>
+    <string name="watch_interstitial_ad_5_coins">Watch Normal Ad (5 coins)</string>
     <string name="watch_ads_to_get_coins">Watch Ads To Get Coins</string>
     <string name="available_coins_00">Available Coins :  </string>
     <string name="remove_ads_24hr_100_coins">Remove ADs 24hr (100 coins)</string>
@@ -495,5 +495,7 @@
     <string name="taponuserfirst">Tap On A User First</string>
     <string name="congratulation">Congratulation !!!</string>
     <string name="enjoyfree24hrs">Enjoy Free 24 Hours Without Ads To Avail This Bonus Press OK</string>
+ <string name="buy_100_coins">Buy 100 Coins</string>
+ <string name="buy_500_coins">Buy 500 Coins</string>
 
 </resources>

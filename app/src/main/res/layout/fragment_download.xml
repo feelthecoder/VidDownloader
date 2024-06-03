@@ -367,7 +367,7 @@
                             android:layout_marginTop="3dp"
                             android:background="@drawable/shaperound"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/insta_new" />
+                            android:src="@drawable/fb_new" />
 
                         <TextView
                             android:id="@+id/fb2"
