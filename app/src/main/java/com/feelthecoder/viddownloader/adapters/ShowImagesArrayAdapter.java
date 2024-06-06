@@ -54,7 +54,7 @@ public class ShowImagesArrayAdapter extends PagerAdapter {
 
         // setting the image in the imageView
         // imageView.setImageResource(images[position]);
-        Glide.with(context).load(imageList.get(position).getPath()).placeholder(R.drawable.ic_appicon_pro).into(imageView);
+        Glide.with(context).load(imageList.get(position).getPath()).placeholder(R.drawable.vid_preview).into(imageView);
 
         // Adding the View
         Objects.requireNonNull(container).addView(itemView);

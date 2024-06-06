@@ -86,7 +86,7 @@
                 android:layout_height="120dp"
                 android:layout_weight="0"
                 android:padding="5dp"
-                app:srcCompat="@drawable/ic_appicon" />
+                app:srcCompat="@drawable/vid_preview" />
 
             <LinearLayout
                 android:layout_width="0dp"

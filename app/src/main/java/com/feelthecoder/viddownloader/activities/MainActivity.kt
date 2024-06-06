@@ -807,7 +807,7 @@ class MainActivity : AppCompatActivity() {
                             dialog.dismiss()
 
                         }
-                        .setIcon(R.drawable.ic_appicon)
+                        .setIcon(R.drawable.vid_preview)
                         .show()
                 }
             }

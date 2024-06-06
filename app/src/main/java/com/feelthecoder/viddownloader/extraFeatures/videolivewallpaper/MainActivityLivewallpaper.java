@@ -148,7 +148,7 @@ public class MainActivityLivewallpaper extends AppCompatActivity {
                         binding.videoSelectButton.setVisibility(View.VISIBLE);
                         return false;
                     }
-                }).load(Uri.fromFile(new File(this.url))).placeholder(R.drawable.ic_appicon_pro).into(binding.imgThumb);
+                }).load(Uri.fromFile(new File(this.url))).placeholder(R.drawable.vid_preview).into(binding.imgThumb);
             }
         } catch (Exception e) {
             e.printStackTrace();

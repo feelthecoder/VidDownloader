@@ -50,14 +50,14 @@ public class FullImageActivity extends AppCompatActivity {
             } else {
                 GlideApp.with(this)
                         .load(filepath)
-                        .placeholder(R.drawable.ic_appicon_pro)
+                        .placeholder(R.drawable.vid_preview)
                         .into(binding.imageviewFullimg);
             }
         } else if (getIntent().getStringExtra("myimgfile") != null) {
             String filepath = getIntent().getStringExtra("myimgfile");
             GlideApp.with(this)
                     .load(filepath)
-                    .placeholder(R.drawable.ic_appicon_pro)
+                    .placeholder(R.drawable.vid_preview)
                     .into(binding.imageviewFullimg);
 
         }
@@ -65,7 +65,7 @@ public class FullImageActivity extends AppCompatActivity {
 
 
     public void showImage(String str) {
-        GlideApp.with(this).asBitmap().load(str).placeholder(R.drawable.ic_appicon_pro).addListener(new RequestListener<>() {
+        GlideApp.with(this).asBitmap().load(str).placeholder(R.drawable.vid_preview).addListener(new RequestListener<>() {
             public boolean onLoadFailed(GlideException glideException, Object obj, Target<Bitmap> target, boolean z) {
                 iUtils.ShowToast(FullImageActivity.this, "Cant get image");
                 return false;

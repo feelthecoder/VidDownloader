@@ -45,7 +45,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
     BillingClient billingClient;
     TextView clicks;
     Button btn_100;
-    Button btn_500;
+    Button btn_200;
     Button btn_intAd;
     Button btn_videoAd;
     PrefsCoins prefs;
@@ -111,7 +111,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
                 launchPurchaseFlow(productDetailsList.get(0));
             });
 
-            btn_500.setOnClickListener(v -> {
+            btn_200.setOnClickListener(v -> {
                 progress_circular.setVisibility(View.VISIBLE);
                 //we are opening product at index zero since we only have one product
                 launchPurchaseFlow(productDetailsList.get(1));
@@ -186,7 +186,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
 
         clicks = findViewById(R.id.clicks);
         btn_100 = findViewById(R.id.btn_100);
-        btn_500 = findViewById(R.id.btn_500);
+        btn_200 = findViewById(R.id.btn_200);
         btn_videoAd = findViewById(R.id.btn_videoAd);
         btn_intAd = findViewById(R.id.btn_intAd);
         progress_circular = findViewById(R.id.progress_circular);
@@ -199,7 +199,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
 
 //Change these to add more coins
         coins.add(100);
-        coins.add(500);
+        coins.add(200);
         coins.add(5);
         coins.add(15);
 
@@ -267,7 +267,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
                         .setProductType(BillingClient.ProductType.INAPP)
                         .build()
                 , QueryProductDetailsParams.Product.newBuilder()
-                        .setProductId(getString(R.string.coins_500))
+                        .setProductId(getString(R.string.coins_200))
                         .setProductType(BillingClient.ProductType.INAPP)
                         .build()
         );
@@ -298,8 +298,8 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
                         ProductDetails productDetails1 = list.get(1);
                         String price1 = productDetails1.getOneTimePurchaseOfferDetails().getFormattedPrice();
                         String productName1 = productDetails1.getName();
-                        btn_500.setText(price1 + "  -  " + productName1);
-                        btn_500.setVisibility(View.VISIBLE);
+                        btn_200.setText(price1 + "  -  " + productName1);
+                        btn_200.setVisibility(View.VISIBLE);
 
                         progress_circular.setVisibility(View.INVISIBLE);
 
@@ -364,7 +364,7 @@ public class CoinsConsumableItemsActivity extends AppCompatActivity {
             prefs.setInt("coins", (coins.get(0) * purchase.getQuantity()) + prefs.getInt("coins", 0));
             //Update UI
             clicks.setText(getString(R.string.available_coins_00) + prefs.getInt("coins", 0));
-        } else if (purchase.getSkus().get(0).equals(getString(R.string.coins_500))) {
+        } else if (purchase.getSkus().get(0).equals(getString(R.string.coins_200))) {
 
             //set coins
             prefs.setInt("coins", (coins.get(1) * purchase.getQuantity()) + prefs.getInt("coins", 0));

@@ -35,7 +35,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="3dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_appicon" />
+            app:srcCompat="@drawable/vid_preview" />
 
         <TextView
             android:id="@+id/txtview_RecDisplayAllWebsites"

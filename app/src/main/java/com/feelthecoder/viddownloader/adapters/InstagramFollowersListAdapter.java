@@ -68,7 +68,7 @@ public class InstagramFollowersListAdapter extends RecyclerView.Adapter<Instagra
 
         Node model = data.get(position);
 
-        GlideApp.with(context).load(model.getProfilePicURL()).placeholder(R.drawable.ic_appicon_pro).into(holder.row_search_imageview);
+        GlideApp.with(context).load(model.getProfilePicURL()).placeholder(R.drawable.vid_preview).into(holder.row_search_imageview);
         holder.row_search_name_textview.setText(model.getFullName());
         holder.row_search_detail_textview.setText(model.getUsername());
 

@@ -334,7 +334,7 @@ public class FloatingWidgetDownload extends Service {
                 .setDefaults(Notification.DEFAULT_ALL);
 
         b.setContentTitle(getString(R.string.app_name))
-                .setSmallIcon(R.drawable.ic_appicon)
+                .setSmallIcon(R.drawable.vid_preview)
                 .setTicker(getString(R.string.app_name));
 
         b.addAction(R.drawable.ic_download_color_24dp,
@@ -379,7 +379,7 @@ public class FloatingWidgetDownload extends Service {
                 .setDefaults(Notification.DEFAULT_ALL);
 
         b.setContentTitle(getString(R.string.app_name))
-                .setSmallIcon(R.drawable.ic_appicon)
+                .setSmallIcon(R.drawable.vid_preview)
                 .setTicker(getString(R.string.app_name));
 
         b.addAction(R.drawable.ic_download_color_24dp,

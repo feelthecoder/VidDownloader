@@ -189,7 +189,7 @@ public class FacebookPrivateWebview extends AppCompatActivity implements View.On
                         .setPositiveButton(R.string.yes, (dialog, which) -> DownloadFileMain.startDownloading(FacebookPrivateWebview.this, myvideoUrl.toString(), str2, ".mp4"))
 
                         .setNegativeButton(R.string.negative_btn, null)
-                        .setIcon(R.drawable.ic_appicon)
+                        .setIcon(R.drawable.vid_preview)
                         .show();
             }
         } catch (Exception e) {
@@ -256,7 +256,7 @@ public class FacebookPrivateWebview extends AppCompatActivity implements View.On
                                 })
 
                                 .setNegativeButton(R.string.negative_btn, null)
-                                .setIcon(R.drawable.ic_appicon)
+                                .setIcon(R.drawable.vid_preview)
                                 .show();
                     }
 

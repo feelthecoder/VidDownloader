@@ -99,7 +99,7 @@ public class InstagramImageFileListAdapter extends RecyclerView.Adapter<Instagra
 
             GlideApp.with(context)
                     .load(fileItem.getPath())
-                    .placeholder(R.drawable.ic_appicon_pro)
+                    .placeholder(R.drawable.vid_preview)
                     .into(viewHolder.myimage);
         } catch (Exception ex) {
             ex.printStackTrace();

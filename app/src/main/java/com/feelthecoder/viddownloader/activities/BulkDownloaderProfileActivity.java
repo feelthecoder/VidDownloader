@@ -8,9 +8,12 @@
 
 package com.feelthecoder.viddownloader.activities;
 
+import static com.smarteist.autoimageslider.SliderView.TAG;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Keep;
@@ -147,10 +150,15 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
 
     public void loadAllProfileData(String username, String pkId) {
 
+        Log.i("USERID AND PKID",username+pkId);
+
         SharedPrefsForInstagram sharedPrefsFor = new SharedPrefsForInstagram(BulkDownloaderProfileActivity.this);
         ModelInstagramPref map = sharedPrefsFor.getPreference();
+
         if (map != null && map.getPREFERENCE_USERID() != null && !map.getPREFERENCE_USERID().equals("oopsDintWork") && !map.getPREFERENCE_USERID().equals("")) {
             myCookies = "ds_user_id=" + map.getPREFERENCE_USERID() + "; sessionid=" + map.getPREFERENCE_SESSIONID();
+            System.out.println("hvjksdhfhdkd userpkId yhyhy 2");
+
         } else {
             myCookies = iUtils.myInstagramTempCookies;
         }
@@ -159,12 +167,16 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
             myCookies = "";
         }
 
+        Log.i(myCookies, "loadAllProfileData: "+myCookies);
         RetrofitApiInterface apiService = RetrofitClient.getClient();
 
         Call<JsonObject> callResult = apiService.getInstagramProfileDataBulk("https://www.instagram.com/" + username + "/?__a=1&__d=dis", myCookies,
-                "Instagram 9.5.2 (iPhone7,2; iPhone OS 9_3_3; en_US; en-US; scale=2.00; 750x1334) AppleWebKit/420+");
+                iUtils.UserAgentsList[0]);
 
+        Log.i(TAG, "loadAllProfileData: "+callResult);
 
+        binding.profileLongIdTextview.setText(username);
+        GlideApp.with(BulkDownloaderProfileActivity.this).load(R.drawable.insta_new).placeholder(R.drawable.insta_new).into(binding.profileLongCircle);
         callResult.enqueue(new Callback<>() {
             @Override
             public void onResponse(@NonNull Call<JsonObject> call, @NonNull Response<JsonObject> response) {
@@ -182,6 +194,9 @@ public class BulkDownloaderProfileActivity extends AppCompatActivity {
                     binding.profileFollowingNumberTextview.setText(userdata.getAsJsonObject("edge_follow").get("count").getAsString());
                     binding.profilePostNumberTextview.setText(userdata.getAsJsonObject("edge_owner_to_timeline_media").get("count").getAsString());
                     binding.profileLongIdTextview.setText(userdata.get("username").getAsString());
+
+
+                    Log.d(username, "onResponse: "+ userdata);
 
                     if (userdata.get("is_verified").getAsBoolean()) {
                         binding.profileLongApprovedImageview.setVisibility(View.VISIBLE);

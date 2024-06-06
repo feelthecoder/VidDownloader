@@ -69,7 +69,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         }
         GlideApp.with(context)
                 .load(files.getUri())
-                .placeholder(R.drawable.ic_appicon_pro)
+                .placeholder(R.drawable.vid_preview)
                 .into(holder.savedImage);
         holder.savedImage.setOnClickListener(v -> {
             if (files.getUri().toString().endsWith(".mp4")) {

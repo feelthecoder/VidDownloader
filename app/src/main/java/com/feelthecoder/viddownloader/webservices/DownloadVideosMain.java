@@ -3827,7 +3827,7 @@ veer.tv
 
                 GlideApp.with(Mcontext)
                         .load(response.getThumbnail())
-                        .placeholder(R.drawable.ic_appicon_pro).into(thumb_bottomsheet);
+                        .placeholder(R.drawable.vid_preview).into(thumb_bottomsheet);
 
             }
             // source_bottomsheet.setText(String.format("Source: %s", gsonObj.getVideos().get(0).getExtractor()));
@@ -3976,7 +3976,7 @@ veer.tv
 
                         GlideApp.with(Mcontext)
                                 .load(gsonObj.getVideos().get(0).getThumbnail())
-                                .placeholder(R.drawable.ic_appicon_pro).into(thumb_bottomsheet);
+                                .placeholder(R.drawable.vid_preview).into(thumb_bottomsheet);
 
                     }
                     // source_bottomsheet.setText(String.format("Source: %s", gsonObj.getVideos().get(0).getExtractor()));
@@ -4079,7 +4079,7 @@ veer.tv
 
                             GlideApp.with(Mcontext)
                                     .load(gsonObj.getVideos().get(0).getThumbnail())
-                                    .placeholder(R.drawable.ic_appicon_pro).into(thumb_bottomsheet);
+                                    .placeholder(R.drawable.vid_preview).into(thumb_bottomsheet);
 
                         }
                         // source_bottomsheet.setText(String.format("Source: %s", gsonObj.getVideos().get(0).getExtractor()));

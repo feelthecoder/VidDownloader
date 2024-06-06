@@ -75,13 +75,13 @@ public class StoryUsersListAdapter extends RecyclerView.Adapter<StoryUsersListAd
                 }
                 try {
                     GlideApp.with(context).load(userListIninstaStory.get(position).getUser().getProfile_pic_url() + "")
-                            .placeholder(R.drawable.ic_appicon_pro).thumbnail(0.2f).into(viewHolder.story_item_imgview);
+                            .placeholder(R.drawable.vid_preview).thumbnail(0.2f).into(viewHolder.story_item_imgview);
                 } catch (Exception e) {
                     System.out.println("errorisnnnnnn: " + e.getMessage());
 
                     try {
                         GlideApp.with(context).load(userListIninstaStory.get(position).getOwner().getProfile_pic_url() + "")
-                                .placeholder(R.drawable.ic_appicon_pro).thumbnail(0.2f).into(viewHolder.story_item_imgview);
+                                .placeholder(R.drawable.vid_preview).thumbnail(0.2f).into(viewHolder.story_item_imgview);
                     } catch (Exception e1) {
                         System.out.println("errorisnnnnnn: " + e1.getMessage());
                     }
@@ -99,7 +99,7 @@ public class StoryUsersListAdapter extends RecyclerView.Adapter<StoryUsersListAd
 
                 try {
                     GlideApp.with(context).load(userListIninstaStory.get(position).getUser().getProfile_pic_url())
-                            .placeholder(R.drawable.ic_appicon_pro).thumbnail(0.2f).into(viewHolder.story_item_imgview);
+                            .placeholder(R.drawable.vid_preview).thumbnail(0.2f).into(viewHolder.story_item_imgview);
                 } catch (Exception e) {
                     System.out.println("errorisnnnnnn: " + e.getMessage());
                 }

@@ -161,12 +161,12 @@ public class SnapChatBulkStoryDownloader extends AppCompatActivity {
                                     purl = snapChatStoryModel.getProps().getPageProps().getUserProfile().getPublicProfileInfo().getProfilePictureURL();
                                     GlideApp.with(SnapChatBulkStoryDownloader.this)
                                             .load(purl)
-                                            .placeholder(R.drawable.ic_appicon_pro).into(binding.profileLongCircle);
+                                            .placeholder(R.drawable.vid_preview).into(binding.profileLongCircle);
 
                                 } catch (Exception e1e) {
                                     GlideApp.with(SnapChatBulkStoryDownloader.this)
                                             .load(document.select("meta[property=\"og:image\"]").first().attr("content"))
-                                            .placeholder(R.drawable.ic_appicon_pro).into(binding.profileLongCircle);
+                                            .placeholder(R.drawable.vid_preview).into(binding.profileLongCircle);
                                 }
 
                                 try {

@@ -96,6 +96,12 @@ public class InstagramBulkDownloaderSearch extends AppCompatActivity {
 
             loadDummyData();
 
+            SharedPrefsForInstagram sharedPrefsFor = new SharedPrefsForInstagram(InstagramBulkDownloaderSearch.this);
+            ModelInstagramPref map = sharedPrefsFor.getPreference();
+
+            if (map != null && map.getPREFERENCE_USERID() != null && !map.getPREFERENCE_USERID().equals("oopsDintWork") && !map.getPREFERENCE_USERID().equals(""))
+                binding.videomorelistBtn.setVisibility(View.GONE);
+
             if (Constants.show_Ads && !BuildConfig.ISPRO && AdsManager.status_AdmobBanner) {
 
                 String pp = new SharedPrefsMainApp(getApplicationContext()).getPREFERENCE_inappads();

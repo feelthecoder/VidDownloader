@@ -59,7 +59,7 @@ public class ListAllProfilePostsInstagramUserAdapter extends RecyclerView.Adapte
             }
             GlideApp.with(context)
                     .load(modelInstaItem.getNode().getThumbnail_src())
-                    .placeholder(R.drawable.ic_appicon_pro).into(viewHolder.savedImage);
+                    .placeholder(R.drawable.vid_preview).into(viewHolder.savedImage);
             System.out.println("response1122ff3344554444tt:  " + modelInstaItem.getNode().getThumbnail_src());
 
         } catch (Exception ex) {

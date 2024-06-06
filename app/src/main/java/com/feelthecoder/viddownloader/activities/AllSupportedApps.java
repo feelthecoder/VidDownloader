@@ -244,7 +244,7 @@ public class AllSupportedApps extends AppCompatActivity {
                         .load(recDisplayAllWebsitesModelArrayList
                                 .get(position)
                                 .getWebsiteurl())
-                        .placeholder(R.drawable.ic_appicon)
+                        .placeholder(R.drawable.vid_preview)
                         .into(holder.imgRecDisplayAllWebsites);
 
                 holder.txtviewRecDisplayAllWebsites.setText(recDisplayAllWebsitesModelArrayList.get(position).getWebsitename());

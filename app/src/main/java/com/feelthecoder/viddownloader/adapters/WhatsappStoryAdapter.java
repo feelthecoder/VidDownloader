@@ -76,7 +76,7 @@ public class WhatsappStoryAdapter extends RecyclerView.Adapter<WhatsappStoryAdap
             Log.e("Errorisnewis", files.getUri().toString());
             GlideApp.with(context)
                     .load(files.getUri())
-                    .placeholder(R.drawable.ic_appicon_pro).into(holder.savedImage);
+                    .placeholder(R.drawable.vid_preview).into(holder.savedImage);
 
 
             holder.savedImage.setOnClickListener(v -> {

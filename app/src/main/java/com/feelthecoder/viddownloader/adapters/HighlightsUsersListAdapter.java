@@ -66,13 +66,13 @@ public class HighlightsUsersListAdapter extends RecyclerView.Adapter<HighlightsU
 
                 try {
                     GlideApp.with(context).load(userListIninstaStory.get(position).getCoverMedia().getCroppedImageVersion().getURL() + "")
-                            .thumbnail(0.2f).placeholder(R.drawable.ic_appicon_pro).into(viewHolder.story_item_imgview);
+                            .thumbnail(0.2f).placeholder(R.drawable.vid_preview).into(viewHolder.story_item_imgview);
                 } catch (Exception e) {
                     System.out.println("errorisnnnnnn: " + e.getMessage());
 
                     try {
                         GlideApp.with(context).load(userListIninstaStory.get(position).getUser().getProfile_pic_url())
-                                .thumbnail(0.2f).placeholder(R.drawable.ic_appicon_pro).into(viewHolder.story_item_imgview);
+                                .thumbnail(0.2f).placeholder(R.drawable.vid_preview).into(viewHolder.story_item_imgview);
                     } catch (Exception e1) {
                         System.out.println("errorisnnnnnn: " + e1.getMessage());
                     }

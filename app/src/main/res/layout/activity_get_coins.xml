@@ -92,14 +92,14 @@
             android:visibility="visible"
             android:text="@string/buy_100_coins" />
         <Button
-            android:id="@+id/btn_500"
+            android:id="@+id/btn_200"
             android:layout_width="match_parent"
             android:textColor="@color/md_white_1000"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:visibility="visible"
             android:background="@color/blue_colorPrimaryDark"
-            android:text="@string/buy_500_coins" />
+            android:text="@string/buy_200_coins" />
     </LinearLayout>
 
 </ScrollView>

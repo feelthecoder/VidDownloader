@@ -30,7 +30,7 @@
 
     <!-- TODO  play console inAppProduct For Coins ids here -->
     <string name="coins_100" translatable="false">100_coins</string>
-    <string name="coins_500" translatable="false">500_coins</string>
+    <string name="coins_200" translatable="false">200_coins</string>
 
 
     <!-- TODO  play console subscription ids -->
@@ -496,6 +496,6 @@
     <string name="congratulation">Congratulation !!!</string>
     <string name="enjoyfree24hrs">Enjoy Free 24 Hours Without Ads To Avail This Bonus Press OK</string>
  <string name="buy_100_coins">Buy 100 Coins</string>
- <string name="buy_500_coins">Buy 500 Coins</string>
+ <string name="buy_200_coins">Buy 200 Coins</string>
 
 </resources>

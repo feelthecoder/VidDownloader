@@ -61,7 +61,7 @@ public class ListAllStoriesOfUserAdapter extends RecyclerView.Adapter<ListAllSto
             }
             GlideApp.with(context)
                     .load(modelInstaItem.getImage_versions2().getCandidates().get(0).getUrl())
-                    .placeholder(R.drawable.ic_appicon_pro).into(viewHolder.savedImage);
+                    .placeholder(R.drawable.vid_preview).into(viewHolder.savedImage);
             System.out.println("response1122ff3344554444tt:  " + modelInstaItem.getImage_versions2().getCandidates().get(0).getUrl());
 
         } catch (Exception ex) {
